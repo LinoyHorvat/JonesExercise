@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 const publicPath = path.join(__dirname, "../client/build");
 app.use(express.static(publicPath));
 
-// const phonebookRoute = require("./routes/phonebook")
-// app.use("/api", phonebookRoute);
+const orderRoute = require("./routes/order")
+app.use("/api", orderRoute);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
