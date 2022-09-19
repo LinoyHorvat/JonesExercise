@@ -1,7 +1,27 @@
+/*----------------------------------------------------------------
+Import
+/*----------------------------------------------------------------*/
 const mongoose = require("mongoose");
 const validator = require("validator");
-const moment = require("moment");
-const { Double } = require("bson");
+
+const getFullDate = () => {
+    console.log(new Date().getFullYear() +
+        "-" +
+        (new Date().getMonth() + 1) +
+        "-" +
+        new Date().getDate());
+    return (
+        new Date().getFullYear() +
+        "-" +
+        (new Date().getMonth() + 1) +
+        "-" +
+        new Date().getDate()
+    );
+};
+
+/*----------------------------------------------------------------
+Mongoose Schema
+/*----------------------------------------------------------------*/
 // TODO: fix validator of phone numbers
 const OrderSchema = new mongoose.Schema({
     first_name: {
@@ -38,7 +58,7 @@ const OrderSchema = new mongoose.Schema({
     address: {
         type: String,
         required: true,
-        message: "Address is required"
+        message: "Address is required",
     },
     // price: {
     //     type: Number,
@@ -71,9 +91,10 @@ const OrderSchema = new mongoose.Schema({
         },
     },
     date: {
+        // TODO: decide on string/ date format
         type: Date,
-        default: Date.now,
+        default: getFullDate(),
         // required: true,
-    }
+    },
 });
 module.exports = mongoose.model("OrderSchema", OrderSchema);
