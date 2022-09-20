@@ -11,8 +11,8 @@
 <h2>GET all Orders</h2>
 Send a get request to [http://localhost:8000/api/](http://localhost:8000/api/)
 <h2>GET all Last Day Orders</h2>
-Send a get request to <a src="http://localhost:8000/api/lastDayOrders">http://localhost:8000/api/lastDayOrders</a>
+Send a get request to [http://localhost:8000/api/lastDayOrders](http://localhost:8000/api/lastDayOrders)
 <h2>POST new Order</h2>
-Send a POST request to <a src="http://localhost:8000/api/">http://localhost:8000/api/</a> with the following parameters:
+Send a POST request to [http://localhost:8000/api/](http://localhost:8000/api/) with the following parameters:
   first_name, last_name, phone, address, quantity, dish_name, comments (optional)
 
