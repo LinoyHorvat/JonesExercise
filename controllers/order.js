@@ -60,7 +60,6 @@ const SaveNewOrder = async(req, res) => {
                 message: "Invalid order details, please fix and try again",
             });
         }
-        console.log(newOrder);
         await newOrder.save();
         res.status(200).send(newOrder);
     } catch (err) {
@@ -77,19 +76,16 @@ const SaveNewOrder = async(req, res) => {
  * @return All the Order from the last day.
  */
 const getAllOrderFromLastDay = async(req, res) => {
+    // TODO: check edge cases
     const startOfDayDate = dayjs().startOf("day").subtract(1, "day").toDate();
     const endOfDayDate = dayjs().endOf("day").subtract(1, "day").toDate();
     try {
         const allOrderFromLastDay = await Order.find({
             date: { $gte: startOfDayDate, $lt: endOfDayDate },
         });
-        if (allOrderFromLastDay && !allOrderFromLastDay.length)
-            return res.status(404).send("No orders found");
-        // TODO: check error message! should it bre 404?
-        // console.log(allOrderFromLastDay);
-        // console.log(dayjs(startOfDayDate));
-        // console.log(dayjs(endOfDayDate));
-        // console.log("Mikey=", dayjs("2022-09-18T16:59:48.469Z"));
+        // if (allOrderFromLastDay && !allOrderFromLastDay.length)
+        //     return res.status(404).send("No orders found");
+        // // TODO: check error message! should it bre 404?
         res.status(200).send(allOrderFromLastDay);
     } catch (error) {
         res.status(400).send(error.message);
@@ -103,9 +99,9 @@ const getAllOrderFromLastDay = async(req, res) => {
 const getAllOrders = async(req, res) => {
     try {
         const allOrders = await Order.find();
-        // TODO: check error message! should it bre 404?
-        if (allOrders && !allOrders.length)
-            return res.status(404).send("No orders found");
+        // // TODO: check error message! should it bre 404?
+        // if (allOrders && !allOrders.length)
+        //     return res.status(404).send("No orders found");
         res.status(200).send(allOrders);
     } catch (error) {
         res.status(400).send(error.message);

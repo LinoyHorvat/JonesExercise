@@ -18,4 +18,3 @@ Send a POST request to <a href="http://localhost:8000/api/" target="_blank">loca
 And replace the Password to the given password.
 4. The app available at http://localhost:8000.
 5. Access the paths mentioned above by using Postman.
-6.

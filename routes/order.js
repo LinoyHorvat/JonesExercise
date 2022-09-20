@@ -16,7 +16,7 @@ router.get("/", getAllOrders);
 router.post("/", SaveNewOrder);
 
 /*----------------------------------------------------------------
-Routes Implementations TODO: change this
+ Handle errors
 /*----------------------------------------------------------------*/
 router.use((req, res) => {
     res.status(404).json({ message: 'Path not found, only the following paths are supported: GET /, GET /lastDayOrders, POST /' });
