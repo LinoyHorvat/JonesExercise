@@ -4,3 +4,11 @@ Alon, Lila,0542333215,Rishpon,1,,Hamburger,2022-09-18T10:26:45.327+00:00
 Hila, Horvat,0549073874,Tel Aviv,3,,chicken,2022-09-18T10:26:45.327+00:00
 Rona, Haker,0527384762,Beer Sheva,2,Vegetarian,salad,2022-09-18T10:26:45.327+00:00
 Yael, Cohen,0673625749,hod hasharon,1,Vegetarian,sushi,2022-09-18T10:26:45.327+00:00
+
+
+    "first_name": "Shay",
+    "last_name": "Shay",
+    "phone": "05478372635",
+    "address": "TLV",
+    "quantity": "1",
+    "dish_name": "Salad"

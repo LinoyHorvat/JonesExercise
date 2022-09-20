@@ -20,3 +20,12 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
 });
+
+
+//  TODO:
+// upload to ReadMe dotenv / send them a copy / upload a .env example
+// add Unit Tests
+// clone the repo to other file and check it
+// Remove all console.log
+// check edge cases - test it
+// HTTP error codes go over all res.status()

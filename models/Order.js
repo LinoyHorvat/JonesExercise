@@ -4,25 +4,10 @@ Import
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const getFullDate = () => {
-    console.log(new Date().getFullYear() +
-        "-" +
-        (new Date().getMonth() + 1) +
-        "-" +
-        new Date().getDate());
-    return (
-        new Date().getFullYear() +
-        "-" +
-        (new Date().getMonth() + 1) +
-        "-" +
-        new Date().getDate()
-    );
-};
 
 /*----------------------------------------------------------------
 Mongoose Schema
 /*----------------------------------------------------------------*/
-// TODO: fix validator of phone numbers
 const OrderSchema = new mongoose.Schema({
     first_name: {
         type: String,
@@ -30,7 +15,7 @@ const OrderSchema = new mongoose.Schema({
         message: "Name is required",
         validate: {
             validator: (val) => {
-                validator.isAlpha(val);
+                return validator.isAlpha(val);
             },
         },
     },
@@ -40,7 +25,7 @@ const OrderSchema = new mongoose.Schema({
         message: "Last name is required",
         validate: {
             validator: (val) => {
-                validator.isAlpha(val);
+                return validator.isAlpha(val);
             },
         },
     },
@@ -50,34 +35,22 @@ const OrderSchema = new mongoose.Schema({
         message: "Phone is required",
         validate: {
             validator: (val) => {
-                validator.isMobilePhone(val);
+                return validator.isMobilePhone(val);
             },
         },
     },
-    // TODO: check address
+    // TODO: optional check address 
     address: {
         type: String,
         required: true,
         message: "Address is required",
     },
-    // price: {
-    //     type: Number,
-    //     required: true,
-    //     message: "Price is required",
-    //     validate: {
-    //         validator: (val) => {
-    //             validator.isCurrency(val);
-    //         },
-    //     },
     quantity: {
-        type: String,
+        type: Number,
+        min: 1,
+        max: 50,
         required: true,
         message: "Quantity is required",
-        validate: {
-            validator: (val) => {
-                validator.isInt(val, { min: 1, max: 99 });
-            },
-        },
     },
     comments: { type: String },
     dish_name: {
@@ -86,15 +59,14 @@ const OrderSchema = new mongoose.Schema({
         message: "Dish name is required",
         validate: {
             validator: (val) => {
-                validator.isAlpha(val);
+                return validator.isAlpha(val);
             },
         },
     },
     date: {
-        // TODO: decide on string/ date format
+        // TODO: optional do i need time?
         type: Date,
-        default: getFullDate(),
-        // required: true,
+        default: new Date(),
     },
 });
 module.exports = mongoose.model("OrderSchema", OrderSchema);
