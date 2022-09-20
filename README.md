@@ -9,7 +9,7 @@
 
 <h1>REST API Functions</h1>
 <h2>GET all Orders</h2>
-Send a get request to <a href="http://localhost:8000/api/" target="_blank">Google</a> 
+Send a get request to <a href="http://localhost:8000/api/" target="_blank">localhost:8000/api</a> 
 <h2>GET all Last Day Orders</h2>
 Send a get request to [http://localhost:8000/api/lastDayOrders](http://localhost:8000/api/lastDayOrders)
 <h2>POST new Order</h2>
