@@ -27,6 +27,5 @@ module.exports = app
 //  TODO:
 // send the .env password
 // Remove all console.log
-
 // check edge cases - test it
 // HTTP error codes go over all res.status()
