@@ -8,12 +8,14 @@ const dayjs = require("dayjs");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const Order = require("../models/Order");
+const should = chai.should();
+
 
 chai.use(chaiHttp);
 /*----------------------------------------------------------------
 Test
 /*----------------------------------------------------------------*/
-describe("Orders Unit Tests", () => {
+describe("Order Unit Tests", () => {
     beforeEach((done) => {
         // empty the database before each test.
         Order.deleteMany({}, (err) => {
@@ -24,7 +26,7 @@ describe("Orders Unit Tests", () => {
      * Test the /GET all route
      */
     describe("/GET all orders", () => {
-        it("it should GET all the Orders (because currently there aren't orders it should return an empty array", (done) => {
+        it("it should GET all the Orders => should return an empty array", (done) => {
             chai
                 .request(app)
                 .get("/api/")
