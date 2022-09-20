@@ -1,20 +1,18 @@
-//During the test the env variable is set to test
+//Set the env variable to test
 process.env.NODE_ENV = "test";
-
-const { SaveNewOrder } = require("../controllers/order");
+/*----------------------------------------------------------------
+Import
+/*----------------------------------------------------------------*/
 const app = require("../app");
 const dayjs = require("dayjs");
-
-
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const should = chai.should();
-chai.use(chaiHttp);
-
-const mongoose = require("mongoose");
 const Order = require("../models/Order");
 
-//Our parent block
+chai.use(chaiHttp);
+/*----------------------------------------------------------------
+Test
+/*----------------------------------------------------------------*/
 describe("Orders Unit Tests", () => {
     beforeEach((done) => {
         // empty the database before each test.
@@ -130,7 +128,6 @@ describe("Orders Unit Tests", () => {
                 .end((err, res) => {
                     res.should.have.status(400);
                     res.body.should.be.a("object");
-                    console.log(res.error.text);
                     res.error.text.should.eql("OrderSchema validation failed: first_name: Path `first_name` is required., last_name: Path `last_name` is required., phone: Path `phone` is required., address: Path `address` is required., quantity: Path `quantity` is required., dish_name: Path `dish_name` is required.")
                     done();
                 });
@@ -151,7 +148,6 @@ describe("Orders Unit Tests", () => {
                 .end((err, res) => {
                     res.should.have.status(400);
                     res.body.should.be.a("object");
-                    console.log(res.error.text);
                     res.error.text.should.eql("OrderSchema validation failed: first_name: Validator failed for path `first_name` with value `Shay5`, last_name: Validator failed for path `last_name` with value `Mor5`, phone: Validator failed for path `phone` with value `linoy05478372635`, quantity: Path `quantity` (0) is less than minimum allowed value (1)., dish_name: Validator failed for path `dish_name` with value `Salad5555`")
                     done();
                 });

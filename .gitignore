@@ -2,8 +2,6 @@ node_modules
 # Secret file
 .env
 
-
-# TODO: do i need it all???
 # Logs
 logs
 *.log

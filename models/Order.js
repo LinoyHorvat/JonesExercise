@@ -3,8 +3,6 @@ Import
 /*----------------------------------------------------------------*/
 const mongoose = require("mongoose");
 const validator = require("validator");
-
-
 /*----------------------------------------------------------------
 Mongoose Schema
 /*----------------------------------------------------------------*/
@@ -39,7 +37,6 @@ const OrderSchema = new mongoose.Schema({
             },
         },
     },
-    // TODO: optional check address 
     address: {
         type: String,
         required: true,
@@ -64,7 +61,6 @@ const OrderSchema = new mongoose.Schema({
         },
     },
     date: {
-        // TODO: optional do i need time?
         type: Date,
         default: new Date(),
     },

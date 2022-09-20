@@ -54,19 +54,10 @@ const SaveNewOrder = async(req, res) => {
             comments,
             dish_name,
         });
-        if (!orderValidations(newOrder)) {
-            // TODO: write error message &http
-            res.status(400).json({
-                message: "Invalid order details, please fix and try again",
-            });
-        }
         await newOrder.save();
         res.status(200).send(newOrder);
     } catch (err) {
         res.status(400).send(err.message);
-        throw "The order wasn't save, please check the details and try again";
-        // TODO:check error message
-        // TODO: validation of req -> how to block new filed
     }
 };
 
@@ -83,9 +74,6 @@ const getAllOrderFromLastDay = async(req, res) => {
         const allOrderFromLastDay = await Order.find({
             date: { $gte: startOfDayDate, $lt: endOfDayDate },
         });
-        // if (allOrderFromLastDay && !allOrderFromLastDay.length)
-        //     return res.status(404).send("No orders found");
-        // // TODO: check error message! should it bre 404?
         res.status(200).send(allOrderFromLastDay);
     } catch (error) {
         res.status(400).send(error.message);
@@ -99,9 +87,6 @@ const getAllOrderFromLastDay = async(req, res) => {
 const getAllOrders = async(req, res) => {
     try {
         const allOrders = await Order.find();
-        // // TODO: check error message! should it bre 404?
-        // if (allOrders && !allOrders.length)
-        //     return res.status(404).send("No orders found");
         res.status(200).send(allOrders);
     } catch (error) {
         res.status(400).send(error.message);
