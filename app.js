@@ -26,9 +26,7 @@ module.exports = app
 
 //  TODO:
 // send the .env password
-// clone the repo to other file and check it
 // Remove all console.log
 
 // check edge cases - test it
 // HTTP error codes go over all res.status()
-// delete unneeded package,json like chai mocha and sinon
