@@ -65,4 +65,7 @@ const OrderSchema = new mongoose.Schema({
         default: new Date(),
     },
 });
+/*----------------------------------------------------------------
+Export
+/*----------------------------------------------------------------*/
 module.exports = mongoose.model("OrderSchema", OrderSchema);
