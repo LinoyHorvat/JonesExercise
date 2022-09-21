@@ -26,7 +26,7 @@ describe("Order Unit Tests", () => {
      * Test the /GET all route
      */
     describe("/GET all orders", () => {
-        it("the db is empty => it should return an empty array", (done) => {
+        it("the DB is empty => it should return an empty array", (done) => {
             chai
                 .request(app)
                 .get("/api/")
