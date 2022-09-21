@@ -4,34 +4,11 @@ Import
 const Order = require("../models/Order");
 const dayjs = require("dayjs");
 /*----------------------------------------------------------------
-Utile
-/*----------------------------------------------------------------*/
-/**
- * @function orderValidations
- * Get order details and check them.
- * @return True if the order is valid or False otherwise.
- */
-const orderValidations = (order) => {
-    // const {
-    //     first_name,
-    //     last_name,
-    //     phone,
-    //     address,
-    //     quantity,
-    //     comments,
-    //     dish_name,
-    // } = order;
-    // if (!first_name || !last_name || !phone || !address || !quantity || !comments || !dish_name) {
-    //     return false;
-    // }
-    return true;
-};
-/*----------------------------------------------------------------
     Controllers Functions
 /*----------------------------------------------------------------*/
 /**
  * @function SaveNewOrder
- * Save a new Order details into YammieOrder db.
+ * Save new Order details into YammieOrder DB.
  * @return The Details of the new order.
  */
 const SaveNewOrder = async(req, res) => {
@@ -63,11 +40,10 @@ const SaveNewOrder = async(req, res) => {
 
 /**
  * @function getAllOrderFromLastDay
- * Get all the order from the last day.
- * @return All the Order from the last day.
+ * Get all the orders from the last day.
+ * @return All the Orders from the last day.
  */
 const getAllOrderFromLastDay = async(req, res) => {
-    // TODO: check edge cases
     const startOfDayDate = dayjs().startOf("day").subtract(1, "day").toDate();
     const endOfDayDate = dayjs().endOf("day").subtract(1, "day").toDate();
     try {
